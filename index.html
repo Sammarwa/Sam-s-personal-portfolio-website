@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio website of Sammy Marwa">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <nav aria-label="Main navigation">
+            <a href="#home" class="logo">Sammy Marwa</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#handles">Handles<small> (social)</small></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--HERO SECTION 2 -->
+    <section class="hero" id="home">
+        <h1>Hi, I'm Sammy Marwa Beneti</h1>
+        <p class="hero-subtitle">Backend Web Developer | Creating Modern Web Solutions</p>
+        <a href="#contact" class="cta-button">Contact Me</a>
+    </section>
+    <!--ABOUT SECTION 3 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a passionate full-stack developer
+                         from Nairobi, Kenya, with 3+ years of
+                          experience building web applications that
+                           solve real-world problems.</p>
+                    <p>I specialize in creating responsive, user-friendly
+                         applications using modern JavaScript frameworks
+                          and backend technologies.</p>
+                    <p>My mission is to build digital solutions that make 
+                        a positive impact on people's lives, whether it's 
+                        through improving user experience or optimizing 
+                        performance.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/sammy.jpg" alt="Portrait of Sammy Marwa">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--SKillS SECTION 4 -->
+    <table id="skills">
+        <thead>
+            <tr>
+                <th>Skills Categories</th>
+                <th>Technologies</th>
+                <th>Profeciency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Frontend</td>
+                <td>HTML/CSS</td>
+                <td>still perfecting</td>
+            </tr>
+            <tr>
+                <td>Cybersecurity</td>
+                <td>Splunk</td>
+                <td>Still perfecting too</td>
+            </tr>
+            <tr>
+                <td>tools& Dev</td>
+                <td>Git</td>
+                <td>Going pro..</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--PROJECT SECTION 5 -->
+    <section class="project-section" id="projects">
+        <div class="container">
+            <div class="project-card">
+                <div class="project-image"><img src="images/imagesproject1.jpg" alt="image of my project"></div>
+                <div class="project-info">
+                    <h3>Get In Touch</h3>
+                    <p>Have a project in mind or want to collaborate? Send
+                         me a message and let's discuss how we can work together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--CONTACT FORM 6 -->
+    <section class="contact-section">
+        <div class="container">
+            <form action="mailto:sammymarwa96@gmail.com" method="post" 
+            enctype="text/plain" id="contact" class="contact-form">
+                <div>
+                    <label for="name">Full Name</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your name" 
+                    required>
+                </div>
+                <div>
+                    <label for="email">Email Address</label><br>
+                    <input type="email" name="email" id="email" placeholder="Your email" 
+                    required>
+                </div>
+                <label for="message">Message</label><br>
+                <textarea name="message" id="message" placeholder="Tell me about yourself......"
+                required ></textarea>
+                <button title="Send Message" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <!--FOOTER SECTION 7 -->
+    <footer>
+        <div>
+            <h3>Sammy Marwa</h3>
+            <div id="handles">
+                <a href="https://github.com/Sammarwa" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/sammy-marwa-beneti" target="_blank">LinkedIn</a>
+                <a href="https://x.com/Sammymarwa6" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/marwa_.s.b/" target="_blank">Instagram</a>
+            </div>
+
+                <p>&copy; <span id="year">2026</span> Sammy Marwa</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="style.js"></script>
+</html>
