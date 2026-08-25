@@ -295,9 +295,19 @@ footer {
 
 footer a {
     color: var(--lime);
-    margin: 0 8px;
     text-decoration: none;
     transition: color 0.2s ease;
+}
+
+#handles {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+#handles i {
+    margin-right: 4px;
 }
 
 footer a:hover {
