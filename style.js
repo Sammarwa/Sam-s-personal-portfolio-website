@@ -69,4 +69,43 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
+
+  const contactForm = document.querySelector('.contact-form');
+  const formStatus = document.querySelector('.form-status');
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const formAction = contactForm.getAttribute('action') || '';
+
+      formStatus.className = 'form-status';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      if (formAction.startsWith('https://formspree.io/')) {
+        try {
+          const response = await fetch(formAction, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { Accept: 'application/json' }
+          });
+
+          if (!response.ok) throw new Error('Form submission failed');
+          formStatus.textContent = 'Message sent successfully. Thank you for getting in touch.';
+          contactForm.reset();
+        } catch (error) {
+          formStatus.textContent = 'The message could not be sent. Please try again later.';
+          formStatus.classList.add('error');
+        }
+      } else {
+        formStatus.textContent = 'Your message is ready. Connect this form to Formspree to send it directly from the website.';
+        contactForm.reset();
+      }
+
+      formStatus.classList.add('show');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Message';
+    });
+  }
 });
