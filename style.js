@@ -1,72 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const style = document.createElement('style');
-  style.textContent = `
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #fff;
-      padding: 1rem 0;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a.active {
-      color: #2563eb;
-      font-weight: 700;
-    }
-
-    .menu-toggle {
-      display: none;
-      margin-left: auto;
-      background: #111827;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        padding: 1rem;
-        position: absolute;
-        right: 1rem;
-        top: 3.2rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      }
-
-      nav ul.open {
-        display: flex;
-      }
-    }
-  `;
-  document.head.appendChild(style);
-
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetId = link.getAttribute('href');
@@ -101,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.createElement('button');
     toggleButton.className = 'menu-toggle';
     toggleButton.setAttribute('aria-label', 'Toggle navigation');
-    toggleButton.innerHTML = '☰';
+    toggleButton.textContent = 'Menu';
+    toggleButton.setAttribute('aria-expanded', 'false');
     nav.insertBefore(toggleButton, navList);
 
     toggleButton.addEventListener('click', () => {
-      navList.classList.toggle('open');
+      const isOpen = navList.classList.toggle('open');
+      toggleButton.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
