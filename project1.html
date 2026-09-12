@@ -3,18 +3,52 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Project portfolio entry for Sammy Marwa">
-	<title>Project 1 | Sammy Marwa</title>
+	<meta name="description" content="Rock-paper-scissors game built by Sammy Marwa">
+	<title>Rock-Paper-Scissors | Sammy Marwa</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+	<header>
+		<nav aria-label="Project navigation">
+			<a href="index.html" class="logo">Sammy Marwa</a>
+			<a href="index.html" class="cta-button">Back to portfolio</a>
+		</nav>
+	</header>
 	<main class="project-section">
-		<div class="container">
-			<h1>Project 1</h1>
-			<p>This project is a browser-based rock-paper-scissors game built with HTML, CSS, and JavaScript.</p>
-			<p><a class="cta-button" href="project27.html">Open the project</a></p>
-			<p><a href="index.html">Return to portfolio</a></p>
+		<div class="container game-container">
+			<h1>Rock-Paper-Scissors</h1>
+			<p class="project-lede">A browser-based game built with HTML, CSS, and JavaScript.</p>
+			<div class="game-panel" aria-live="polite">
+				<p id="game-result">Choose your move to play.</p>
+				<div class="game-actions">
+					<button type="button" class="game-button" data-move="Rock"><i class="fa-solid fa-hand-back-fist" aria-hidden="true"></i> Rock</button>
+					<button type="button" class="game-button" data-move="Paper"><i class="fa-solid fa-hand" aria-hidden="true"></i> Paper</button>
+					<button type="button" class="game-button" data-move="Scissors"><i class="fa-solid fa-hand-scissors" aria-hidden="true"></i> Scissors</button>
+				</div>
+			</div>
+			<p><a href="https://github.com/Sammarwa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> View Sammy on GitHub</a></p>
 		</div>
 	</main>
+	<script>
+		const moves = ['Rock', 'Paper', 'Scissors'];
+		const result = document.getElementById('game-result');
+
+		document.querySelectorAll('[data-move]').forEach((button) => {
+			button.addEventListener('click', () => {
+				const playerMove = button.dataset.move;
+				const computerMove = moves[Math.floor(Math.random() * moves.length)];
+				const outcome = playerMove === computerMove
+					? 'It is a tie.'
+					: (playerMove === 'Rock' && computerMove === 'Scissors') ||
+					  (playerMove === 'Paper' && computerMove === 'Rock') ||
+					  (playerMove === 'Scissors' && computerMove === 'Paper')
+						? 'You win.'
+						: 'You lose.';
+
+				result.textContent = `You chose ${playerMove}. Computer chose ${computerMove}. ${outcome}`;
+			});
+		});
+	</script>
 </body>
 </html>
